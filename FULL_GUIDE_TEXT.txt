@@ -1,0 +1,1025 @@
+Total pages: 27
+
+=== PAGE 1 ===
+AUTOMATIONX · STUDENT GUIDE ◆ 01 / 27
+AUTOMATIONX STUDENT GUIDE · 2026
+Chandu
+MOMOS
+Small-batch Himalayan momos
+THE BUILD GUIDE
+HOW TO BUILD A
+CINEMATIC SCROLL-
+DRIVEN FOOD WEBSITE
+01 AI image generation
+02 AI video generation
+03 Claude Code
+04 Live website
+4–6HRS
+TOTAL TIME
+18STEPS
+START TO FINISH
+1LIVE SITE
+THE RESULT
+By Dhiraj Sarkar · AutomationX YouTube Instagram Skool
+
+=== PAGE 2 ===
+I. PLAN
+01 Choose your concept 05
+02 Plan the full asset list 06
+II. CREATE THE ASSETS
+03 Hero story images 07
+04 Product plates 09
+05 Craft-process cutouts 10
+06 Atmosphere & garnishes 11
+07 The hero scroll film 12
+08 Ambient films 13
+09 Real transparency 14
+III. BUILD
+10 Project folder & server 15
+11 The design system 17
+12 Site architecture 18
+13 The motion engine 19
+14 The master build prompt 20
+IV. LAUNCH
+15 Iterate like a client 22
+16 Hard-won bugs 23
+17 Deploy 24
+18 Check the name 24
+OVERVIEW What you’re building 03
+TOOLKIT Tools you’ll need 04
+EXAMPLE Same system, new brand 25
+REFERENCE Cheat sheet 26
+CHECKLIST Before you launch 27
+Stuck on a step?
+Post in the community — someone has hit it before.
+YOUTUBE INSTAGRAM FREE COMMUNITY AUTOMATIONX PRO
+AUTOMATIONX · STUDENT GUIDE ◆ 02 / 27
+WELCOME
+Inside this guide
+This is the exact system behind the Chandu Momos website — from the first AI image to a live,
+scroll-driven site. Follow the steps in order. Every prompt is copy-paste ready.
+
+
+=== PAGE 3 ===
+“Scrolling is the play button.”
+01
+Hero film
+A cinematic film scrubs forward
+and back as you move the mouse
+wheel.
+02
+Flavour orbit
+A full-screen showcase rotates
+through four flavours as you scroll.
+03
+Craft sequence
+Four process photos cross-fade in
+perfect sync with scroll.
+WORKS FOR ANY
+BRAND
+Tea, coffee, skincare, chocolate, perfume, jewellery — only the product, copy and palette
+change. The mechanics you learn here are the reusable system.
+THE FULL PIPELINE
+01 Generate 6 hero “story” images that form one
+continuous narrative
+02 Generate 4 transparent flavour plates — the product
+shots
+03 Generate 3 craft-process cutouts: fold, steam, sear 04 Generate 3 atmosphere photos and 2 garnish
+cutouts
+05 Turn the story images into one smooth, scroll-ready
+hero film
+06 Generate 3 short ambient films for the big moments
+07 Set up a project folder with a tiny local preview server 08 Hand one master prompt to your AI coding tool
+09 Iterate like a client, not a programmer 10 Deploy to Netlify or Vercel
+AUTOMATIONX · STUDENT GUIDE ◆ 03 / 27
+OVERVIEW
+What you’re building
+Chandu Momos is a small-batch dumpling brand. Its website is one long page where nothing
+just loads and sits there — everything reacts to scroll.
+FRAME 05 OF THE HERO FILM
+
+=== PAGE 4 ===
+AI image generator 01
+Product photos, story stills and transparent cutouts.
+USED HERE
+Runway MCP (nano-banana-pro). OpenAI image
+generation for one atmospheric shot.
+AI video generator 02
+Turns stills into motion and short ambient loops.
+USED HERE
+Runway MCP (seedance-2) · 4s clips · 1080p · no audio.
+AI coding tool 03
+Turns your assets + one prompt into the actual
+website.
+USED HERE
+Claude Code. Antigravity, Codex, Cursor and Windsurf
+work the same — they just need folder access.
+ffmpeg 04
+Compresses video, prepares it for scroll-scrubbing,
+grabs poster frames.
+USED HERE
+Free, command line, Mac / Windows / Linux.
+Node.js 05
+Runs a tiny local preview server.
+USED HERE
+Any recent version (18+).
+Netlify / Vercel 06
+Hosts the finished static site.
+USED HERE
+Both free. Netlify: drag-and-drop or GitHub. Vercel:
+import from GitHub.
+NEW TO THE
+TERMINAL?
+You only need to copy-paste four short ffmpeg commands. They’re all collected on the cheat
+sheet (page 26).
+AUTOMATIONX · STUDENT GUIDE ◆ 04 / 27
+BEFORE YOU START
+Your toolkit
+Six tools. Most are free, and any AI coding tool with folder access will do the job.
+
+=== PAGE 5 ===
+PRODUCT + EMOTION + RITUAL + ENVIRONMENT + TRANSFORMATION
+CHANDU MOMOS’S ANSWERS
+ELEMENT ANSWER
+Product Small-batch, hand-folded Himalayan-style momos (dumplings)
+Emotion Warmth, steam, home — being fed by someone who cares
+Ritual Folding the dough, dropping it in boiling water, sharing one plate with many hands
+Environment Warm amber studio light on a soft caramel-brown backdrop; later, a dark green editorial home
+Transformation Raw dumpling →  filling exposed →  into the pot →  cooked →  plated →  shared
+STRONG ENOUGH? ✓It breaks naturally into 5–6 visual chapters
+✓One element physically transforms
+✓The feeling is specific — “steam and warmth passed hand to hand,” not just “tasty food”
+YOUR TURN
+PRODUCT
+EMOTION
+RITUAL
+ENVIRONMENT
+TRANSFORMATION
+AUTOMATIONX · STUDENT GUIDE ◆ 05 / 27
+0101
+PART I · PLANSTEP 01
+Choose your concept
+Before generating a single image, answer five questions on paper. Every visual decision
+downstream comes from these answers.
+
+=== PAGE 6 ===
+CATEGORY COUNT PURPOSE
+Hero story stills 6 Keyframes for the scroll-scrubbed hero film — one continuous story
+Hero film 1 Merged + re-encoded; the scrolling background of the hero
+Flavour plates 4 Transparent product shots for the rotating showcase
+Craft cutouts 3 Transparent fold →  steam →  sear sequence
+Atmosphere photos 3 Story section, shared-table section, footer
+Garnish cutouts 2 Small floating decorations in the showcase
+Ambient films 3 Heat poster, kitchen, footer
+Poster stills 1 per film Extracted (not generated) — shown before a video loads
+NAMING RULES
+lowercase hyphens only a leading role word no spaces no “final2”
+✓  GOOD
+image-3-dumplings-enter-water.png
+stage-steam.webp
+film-chilli-pour.mp4
+✕  AVOID
+IMG_4821.png
+final2 NEW (1).png
+Untitled video.mp4
+Why it matters: your AI coding tool reads filenames to understand what each asset is for. The full file list appears as a
+folder tree in Step 10.
+AUTOMATIONX · STUDENT GUIDE ◆ 06 / 27
+0202
+PART I · PLANSTEP 02
+Plan the full asset list
+Write the whole shot list before you generate anything. This site was built from 20 files, grouped
+by role.
+
+=== PAGE 7 ===
+1 RAW 2 FILLING 3 FALLING 4 COOKING 5 PLATED 6 SHARED
+KEEP IN EVERY PROMPT
+warm amber spotlight from above, soft caramel-brown gradient backdrop, ultra photorealistic, macro food
+photography, shallow depth of field, no text, no watermark
+01
+RAW, SEALED DUMPLING image-1-dumpling-raw.png
+Reference: none — first image
+A single raw, sealed dumpling floating in the exact center of the frame, delicate hand-pleated dough crimp visible along
+the top seam, warm amber spotlight from directly above, soft caramel-brown gradient background fading to dark at
+the edges, subtle soft shadow beneath, floating with no plate, no surface, no hands, ultra photorealistic macro food
+photography, shallow depth of field, no text, no watermark.
+02
+FILLING EXPOSED, INGREDIENTS ORBITING image-2-ingredients-orbiting.png
+Reference: image-1
+The same dumpling now torn open in the center of frame revealing the seasoned meat and herb filling inside, raw
+ingredients orbiting around it in suspended motion — a few pieces of chopped scallion, fresh coriander leaves, small
+clusters of minced meat, and cracked pepper — all floating mid-air as if caught the instant they were tossed, same
+warm amber spotlight, same caramel-brown gradient background, ultra photorealistic macro food photography, no
+text, no watermark.
+03
+FALLING TOWARD THE BOILING POT image-3-dumplings-enter-water.png
+Reference: image-2
+The same open dumpling now falling through the air toward a glass pot of boiling water below, the orbiting scallion,
+coriander and pepper still trailing around it mid-fall, visible steam and water droplets rising from the rolling boil beneath,
+glass pot with visible handles catching the same warm amber light, camera holding the same locked framing, ultra
+photorealistic macro food photography, no text, no watermark.
+AUTOMATIONX · STUDENT GUIDE ◆ 07 / 27
+0303
+PART II · CREATE THE ASSETSSTEP 03
+Generate the
+hero story images
+Six images, one continuous story. Generate them in order, uploading each finished image as the
+reference for the next — that keeps lighting, backdrop and framing identical.
+
+=== PAGE 8 ===
+04
+COOKING, FULLY SUBMERGED image-4-dumplings-cooked.png
+Reference: image-3
+A cluster of dumplings now fully submerged and cooking inside the same glass pot of boiling water, wide shot pulled
+back to show the pot’s rim and handles, thick steam rising off the rolling water into the warm amber light, a few
+coriander leaves floating on the surface between the dumplings, same caramel-brown gradient background, ultra
+photorealistic macro food photography, no text, no watermark.
+05
+PLATED AND STEAMING image-5-plated-dumplings.png
+Reference: image-4
+A generous bowl of the same dumplings, now cooked, glistening and lightly garnished with fresh herbs, arranged in a
+shallow ceramic bowl, thick steam rising off the top, warm amber spotlight from above, same soft caramel-brown
+gradient background, ultra photorealistic editorial food photography, shallow depth of field, no text, no watermark.
+06
+SHARED AT THE TABLE image-6-family-hands-table.png
+Reference: image-5
+The same bowl of dumplings now resting on a warm wooden table, several hands reaching in from different sides — one
+steadying the bowl, one holding a spoon serving into it, others resting nearby — soft warm ambient light replacing the
+studio spotlight, a blurred vase and plant visible in the background, intimate close, editorial and unposed, no faces in
+sharp focus, ultra photorealistic, no text, no watermark.
+WHY THIS ORDER
+MATTERS
+Each image changes only one thing from the one before it — filling exposed, then falling, then
+submerged, then plated, then shared. That’s what lets Step 7 turn them into one seamless
+morphing film instead of six disconnected clips.
+1 · RAW
+ 2 · FILLING
+ 3 · FALLING
+ 4 · COOKING
+ 5 · PLATED
+ 6 · SHARED
+AUTOMATIONX · STUDENT GUIDE ◆ 08 / 27
+0303
+PART II · CREATE THE ASSETSSTEP 03
+Hero story images, continued
+
+=== PAGE 9 ===
+01
+CLASSIC CHICKEN chicken-plate.webp
+Generate this one first
+Top-down overhead shot of ten seared, golden-browned dumplings arranged in a circle on a round dark
+walnut wooden plate, a small white dipping bowl in the center filled with a dark soy-sesame dipping sauce
+topped with fresh coriander leaves and sesame seeds, a scattering of julienned carrot and coriander to one
+side, studio overhead lighting, sharp focus, editorial food photography, plain white background, no hands, no
+text, no watermark.
+02
+MALAI PANEER paneer-plate.webp
+Reference: chicken-plate
+Top-down overhead shot of ten golden-browned dumplings arranged in a circle on the same round dark
+walnut wooden plate, a small white dipping bowl in the center filled with a pale creamy green herb-yoghurt dip
+topped with a coriander sprig and a dusting of spice, same studio overhead lighting, sharp focus, editorial food
+photography, plain white background, no hands, no text, no watermark.
+03
+FARM FRESH VEG veg-plate.webp
+Reference: chicken-plate
+Top-down overhead shot of ten golden-browned dumplings arranged in a circle on the same round dark
+walnut wooden plate, a small white dipping bowl in the center filled with a vivid green herb chutney topped with
+a coriander sprig and sesame seeds, julienned carrot garnish to one side, same studio overhead lighting, sharp
+focus, editorial food photography, plain white background, no hands, no text, no watermark.
+04
+FIERY CHILLI GARLIC spicy-plate.webp
+Reference: chicken-plate
+Top-down overhead shot of ten golden-browned dumplings arranged in a circle on the same round dark
+walnut wooden plate, a small white dipping bowl in the center filled with a glossy red chilli-garlic sauce
+topped with a coriander sprig, dried red chilli flakes and julienned carrot scattered across the plate, same
+studio overhead lighting, sharp focus, editorial food photography, plain white background, no hands, no text,
+no watermark.
+AUTOMATIONX · STUDENT GUIDE ◆ 09 / 27
+0404
+PART II · CREATE THE ASSETSSTEP 04
+Generate the
+product plates
+Four flavours, shot overhead on plain white so they can be cut out later (Step 9). Same walnut
+plate, same dip bowl, same lighting — only the dumplings, sauce and garnish change.
+
+
+=== PAGE 10 ===
+01FOLD 02STEAM 03SEAR
+01
+FOLD stage-fold.webp
+Six raw, hand-pleated dumplings arranged on a flour-dusted wooden paddle board, one dumpling in the foreground
+torn open to reveal the raw seasoned filling inside, visible flour dusting on the board, soft natural side light, shallow
+depth of field, editorial food photography, plain white background so it can be cut out cleanly, no hands, no text,
+no watermark.
+02
+STEAM stage-steam.webp
+A round bamboo steamer basket, lid tilted open, filled with pleated dumplings, thick visible steam rising off the
+dumplings inside, warm natural light, editorial food photography, plain white background so it can be cut out cleanly, no
+hands, no text, no watermark.
+03
+SEAR stage-sear.webp
+A dark cast-iron skillet with a handle, filled with dumplings pan-seared to a deep golden-brown crust on the bottom,
+scattered sesame seeds and sliced spring onion across the top, warm directional light catching the sear marks,
+editorial food photography, plain white background so it can be cut out cleanly, no hands, no text, no watermark.
+ON THE WEBSITE These three cross-fade in sync with scroll. Keep the camera angle and light similar across all
+three so the fade reads as one process, not three photos.
+AUTOMATIONX · STUDENT GUIDE ◆ 10 / 27
+0505
+PART II · CREATE THE ASSETSSTEP 05
+Generate the craft-
+process cutouts
+Three images showing how momos are made, in order. Each gets cut out and floats on the page
+with a soft drop shadow — no card, no box.
+
+
+=== PAGE 11 ===
+ATMOSPHERE
+01
+STORY / MANIFESTO manifesto-feast-v2.webp
+A photorealistic luxury food-editorial wide banner showing one complete dark ceramic bowl of silky steamed and
+lightly seared dumplings beside a small dish of chilli chutney. Dark textured wood, deep forest-green interior, warm
+amber sidelight, subtle natural steam. Place the entire bowl in the center-right with generous dark negative space for
+HTML copy on the left. No text, logos, people, floating ingredients or cropped food. An original scene.
+02
+SHARED TABLE table-shared.webp
+Overhead photorealistic shot of a dark wooden table at night lit by a single warm overhead lamp, several hands and
+forearms in soft sweaters reaching in from every side of frame, wooden chopsticks resting beside each place, a large
+central plate of steamed dumplings with a small bowl of red dipping sauce, smaller side plates of dumplings at each
+seat, warm intimate cinematic lighting, no faces in sharp focus, no text, no watermark.
+03
+FOOTER footer-feast.webp
+A candlelit night scene, two people in warm hooded jackets seated at a rustic wooden table lit only by small glass
+candle jars and an oil lamp, reaching in with wooden chopsticks toward a large metal tray piled with dumplings — half
+golden pan-seared, half pale steamed — steam rising, deep green foliage and stone wall softly lit in the background,
+intimate documentary mood, cinematic and warm, no text, no watermark.
+GARNISHES
+04
+CHILLI GARNISH garnish-chili.webp
+A small cluster of dried red chilli flakes and toasted sesame seeds beside one halved fresh red chilli, scattered naturally,
+overhead studio lighting, plain white background so it can be cut out cleanly, no text, no watermark.
+05
+HERB GARNISH garnish-herbs.webp
+A single fresh coriander sprig beside a small scattered pile of sliced spring onion rounds, overhead studio lighting, plain
+white background so it can be cut out cleanly, no text, no watermark.
+AUTOMATIONX · STUDENT GUIDE ◆ 11 / 27
+0606
+PART II · CREATE THE ASSETSSTEP 06
+Atmosphere photos & garnishes
+Three photos set the emotional beats of the quiet sections. Two tiny cutouts decorate the
+showcase — generate them on white, cut out afterwards.
+
+=== PAGE 12 ===
+image-1 image-2 image-3 image-4 image-5 image-6
+A · ONE CLIP PER IMAGE PAIR
+CLIP START END LENGTH
+Raw →  filling exposed image-1 image-2 2s
+Filling →  falling into pot image-2 image-3 2.5s
+Falling →  cooking image-3 image-4 2s
+Cooking →  plated image-4 image-5 2.5s
+Plated →  shared at table image-5 image-6 3s
+CLIP PROMPT  Ultra slow-motion seamless transformation between the two reference images, warm amber spotlight, soft
+caramel-brown gradient background, camera completely locked with zero movement, cinematic photorealistic macro food
+footage, no text, no watermark.
+If a clip drifts off-look, add: “Ultra realistic luxury food-editorial commercial, warm studio lighting throughout, no CGI glow, no text, no
+watermark.”
+B · MERGE WITH HARD CUTS ONLY
+Drop all five clips into any editor (Canva, CapCut, Premiere) in order. No fades, no dissolves — each clip ends where the next
+begins, so a hard cut is invisible. Export as hero-story-raw.mp4 .
+C · RE-ENCODE FOR SMOOTH SCRUBBING
+TERMINAL BASH
+ffmpeg -i hero-story-raw.mp4 \
+-vf scale=1280:-2 -movflags faststart \
+-vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p \
+-acodec aac -b:a 128k \
+assets/dumpling-story-scrub.mp4
+-g 1  makes every frame a keyframe, so the browser can jump to any exact frame as you scroll — without it, scrubbing stutters. -
+crf 20  keeps the hero sharp.
+AUTOMATIONX · STUDENT GUIDE ◆ 12 / 27
+0707
+PART II · CREATE THE ASSETSSTEP 07
+Build the hero scroll film
+The hero video never plays on its own — scrolling moves it frame by frame. That only feels
+smooth if the film is short, continuous, and re-encoded so every frame is a keyframe.
+
+=== PAGE 13 ===
+01
+HEAT POSTER — CHILLI OIL POUR film-chilli-pour.mp4
+A slow-motion 4−second loop of glossy red chilli oil being poured in a thin ribbon over a plate of golden pan-seared
+dumplings, steam rising, dried chilli flakes and sesame seeds visible on the surface, dramatic warm spotlight against a
+near-black background, camera locked, cinematic and appetite-driving, no people, no text, no audio needed,
+seamless loop if possible.
+02
+KITCHEN — LEVITATING DISH film-levitation.mp4
+A slow-motion 4−second loop of a plate of dumplings gently rotating and levitating in mid-air against a dark backdrop,
+soft steam trailing beneath it, warm rim light catching the edges, dreamlike and elegant, camera locked, cinematic, no
+people, no text, no audio needed, seamless loop if possible.
+03
+FOOTER — RISING STEAM film-steam.mp4
+A slow-motion 4−second loop of thick steam rising and curling off a bowl of dumplings just out of frame, warm
+backlighting turning the steam golden, dark background, cinematic and intimate, camera locked, no people, no text,
+no audio needed, seamless loop if possible.
+COMPRESS EVERY FILM BASH
+ffmpeg -i raw-film.mp4 -vf scale=1280:-2 \
+-crf 30 -an -movflags +faststart output.mp4
+Took these films from ~3MB to 228–438KB. -an drops audio;
++faststart lets playback begin early.
+EXTRACT A POSTER FRAME BASH
+ffmpeg -i film-steam.mp4 -vframes 1 \
+assets/film-steam-poster.webp
+The browser shows this still while the video loads — so visitors never
+see an empty grey box.
+AUTOMATIONX · STUDENT GUIDE ◆ 13 / 27
+0808
+PART II · CREATE THE ASSETSSTEP 08
+Generate the
+ambient films
+Three 4−second loops for the loud moments — heat poster, kitchen and footer. No
+audio needed.
+FILM-STEAM-POSTER.WEBP · EXTRACTED STILL
+
+=== PAGE 14 ===
+The easy way
+1 Generate on a plain white background — already
+written into every prompt in this guide.
+2 Run each image through a one-click remover:
+Photoroom, remove.bg, Adobe’s tool, or Runway
+/ Magnific’s built-in background removal.
+3 Export as .webp  with transparency.
+The script way
+Only if a one-click tool keeps eating part of your subject.
+Ask your AI coding tool to write a script that:
+1 Marks pixels as background if they’re near-grey (max
+− min channel ≤  ~14) within a brightness band.
+2 Flood-fills inward from the image border only — so a
+white bowl surrounded by food is never touched.
+3 Runs a second pass for small enclosed grey pockets.
+4 Feathers the edge with a light blur, then crops to
+content.
+TWO GOTCHAS
+Don’t sample checker colours from a corner patch — a corner
+can sit entirely inside one square. Classify by greyscale +
+brightness instead.
+The checkerboard isn’t always light. A dark checker (black +
+~#5f5f5f) needs the brightness floor dropped to 0.
+ALWAYS VERIFY
+Place each cutout on a solid colour and look for leftover grey
+patches. Never check on a checkerboard — a leftover
+checker is invisible against another checkerboard.
+GENERATED ON WHITE
+→
+CHECKED ON SOLID ✓
+AUTOMATIONX · STUDENT GUIDE ◆ 14 / 27
+0909
+PART II · CREATE THE ASSETSSTEP 09
+Get real transparency
+Most AI image tools don’t return a truly transparent background. You get a checkerboard
+painted into the pixels — it looks fine in preview, then shows up as grey squares on your page.
+RECOMMENDED ADVANCED
+
+=== PAGE 15 ===
+PROJECT STRUCTURE
+chandu-momos/
+├──  index.html           ←  your AI tool builds this
+├──  dev-server.mjs       ←  local preview server
+└──  assets/
+├──  dumpling-story-scrub.mp4
+├──  film-chilli-pour.mp4
+├──  film-levitation.mp4
+├──  film-steam.mp4
+├──  film-steam-poster.webp
+├──  chicken-plate.webp
+├──  paneer-plate.webp
+├──  veg-plate.webp
+├──  spicy-plate.webp
+├──  stage-fold.webp
+├──  stage-steam.webp
+├──  stage-sear.webp
+├──  manifesto-feast-v2.webp
+├──  table-shared.webp
+├──  footer-feast.webp
+├──  garnish-chili.webp
+└──  garnish-herbs.webp
+01
+CREATE THE FOLDER
+Put every finished asset from Steps 3–9 inside
+assets/, named exactly as shown.
+02
+ADD DEV-SERVER.MJS
+A plain file server can’t “seek” inside a video — and
+scroll-scrubbing needs exactly that. This ~40−line
+server handles it (full code on the next page).
+03
+RUN IT
+Open a terminal in the folder and run node dev-
+server.mjs , then open localhost:4174.
+04
+LEAVE IT RUNNING
+Refresh the browser after every change your AI
+coding tool makes.
+A PEEK INSIDE ASSETS/
+chicken-plate.webp
+ paneer-plate.webp
+ veg-plate.webp
+ spicy-plate.webp
+stage-fold.webp
+ stage-steam.webp
+ stage-sear.webp
+ garnish-chili.webp
+AUTOMATIONX · STUDENT GUIDE ◆ 15 / 27
+1010
+PART III · BUILDSTEP 10
+Set up the project folder
+One folder, one assets subfolder, and a tiny server so you can preview the site on your
+own machine.
+
+
+=== PAGE 16 ===
+DEV-SERVER.MJS JAVASCRIPT
+import { createServer } from 'node:http';
+import { createReadStream, statSync } from 'node:fs';
+import { extname, join, normalize, sep } from 'node:path';
+const root = process.cwd();
+const port = Number(process.env.PORT || 4174);
+const types = {
+'.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
+'.js': 'text/javascript; charset=utf-8', '.jpg': 'image/jpeg',
+'.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp',
+'.mp4': 'video/mp4'
+};
+createServer((request, response) |> {
+const pathname = decodeURIComponent(new URL(request.url, 'http:|/localhost').pathname);
+const relative = normalize(pathname).replace(/^[/\\]+/, '') || 'index.html';
+const target = join(root, relative);
+if (target ||= root |& !target.startsWith(root + sep)) {
+response.writeHead(403).end(); return;
+}
+let stats;
+try { stats = statSync(target); if (!stats.isFile()) throw new Error('Not a file'); }
+catch { response.writeHead(404).end(); return; }
+const headers = {
+'Content-Type': types[extname(target).toLowerCase()] || 'application/octet-stream',
+'Accept-Ranges': 'bytes',
+'Cache-Control': 'no-cache, no-store, must-revalidate'
+};
+const range = request.headers.range|.match(/^bytes=(\d*)-(\d*)$/);
+if (range) {
+const start = range[1] ? Number(range[1]) : 0;
+const end = range[2] ? Number(range[2]) : stats.size - 1;
+if (start > end || end |= stats.size) {
+response.writeHead(416, { 'Content-Range': 'bytes |/' + stats.size }).end(); return;
+}
+response.writeHead(206, { ||.headers,
+'Content-Range': 'bytes ' + start + '-' + end + '/' + stats.size,
+'Content-Length': end - start + 1 });
+if (request.method ||= 'HEAD') response.end();
+else createReadStream(target, { start, end }).pipe(response);
+return;
+}
+response.writeHead(200, { ||.headers, 'Content-Length': stats.size });
+if (request.method ||= 'HEAD') response.end();
+else createReadStream(target).pipe(response);
+}).listen(port, '127.0.0.1', () |>
+process.stdout.write('Preview: http:|/localhost:' + port + '\n'));
+AUTOMATIONX · STUDENT GUIDE ◆ 16 / 27
+1010
+PART III · BUILDSTEP 10
+dev-server.mjs
+Don’t want to type it? Ask your AI coding tool: “Create dev-server.mjs with this exact code.” The
+key part is byte-range support — it lets the browser jump anywhere inside a video.
+
+=== PAGE 17 ===
+GREENS
+--night
+#17241d
+Primary dark background
+--deep
+#0d1813
+Darkest anchor
+--pine
+#263d31
+Secondary green
+--story-green
+#10271c
+Story tableau
+LIGHTS
+--paper
+#f4f2ec
+Light sections
+--chalk
+#fcf9f0
+Warm off-white
+--butter
+#fdf3dc
+Cream on red
+TEXT
+--ink
+#19231d
+Body on light
+--muted
+#58645a
+Secondary text
+ACCENTS
+--sun
+#d9b77e
+Gold — buttons, kickers
+--ember
+#cf4a2f
+“The heat”
+--chilli
+#b5231a
+Craft / poster
+--chilli-deep
+#7c140d
+Deep red anchor
+THREE FONTS, THREE ROLES
+Aa
+Cormorant Garamond
+EDITORIAL VOICE
+Hero, manifesto, table, collection,
+footer
+AA
+Bebas Neue / Antonio
+APPETITE VOICE
+High-energy poster moments
+Aa
+Plus Jakarta Sans
+BODY VOICE
+All body copy, everywhere
+THE RULE Use display fonts by role, not at random: narrative sections stay in the serif, high-energy
+poster moments use the bold face. Pick your own pairing — keep the discipline.
+AUTOMATIONX · STUDENT GUIDE ◆ 17 / 27
+1111
+PART III · BUILDSTEP 11
+The design system
+Every colour lives in one CSS variable, so the whole site re-themes by changing a single line
+each. Use these as a starting point — pick your own for your brand.
+
+=== PAGE 18 ===
+01 Hero Scroll-scrubbed film. Nothing autoplays — scrolling is the play button.
+02 Manifesto One atmospheric photo, one emotional line, a button into the menu.
+03 Dish orbit Pinned, full-screen. Scroll rotates through all four flavours.
+04 Heat poster One striking film, one bold headline, minimal copy.
+05 The table A calm photographic beat — one image, a human quote, a small spec strip.
+06 Craft Fold →  steam →  sear cutouts cross-fade in sync with scroll.
+07 Order menu Real pricing and direct WhatsApp order links.
+08 Wholesale A second call-to-action for a different buyer.
+09 Kitchen Ambient film behind a short statement.
+10 Footer Brand, a second atmosphere photo, contact links, copyright.
+TRANSITIONS Every section change on the live site has its own signature animation — a curtain, an aperture,
+bamboo slats. Don’t start there. Ship plain scroll reveals first; add signature transitions once
+the core site works.
+AUTOMATIONX · STUDENT GUIDE ◆ 18 / 27
+1212
+PART III · BUILDSTEP 12
+Site architecture
+A luxury scroll site is a sequence of chapters, each with one job. This is the final running order of
+Chandu Momos.
+SECTION 5 · THE TABLE
+
+=== PAGE 19 ===
+CDN IMPORTS · EXACT VERSIONS HTML
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">//script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">//script>
+<script defer src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js">//script>
+LENIS + GSAP SYNC JS
+const lenis = window.Lenis ? new Lenis({ lerp: .08, smoothWheel: true, wheelMultiplier: .9, anchors: false }) : null;
+if (lenis) {
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(tick);
+gsap.ticker.lagSmoothing(0);
+}
+function tick(time) { lenis.raf(time * 1000); }
+HERO VIDEO SCRUB JS
+const film = document.getElementById('source-video');
+let ticking = false, duration = 0, initialized = false;
+const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
+function updateFilm() {
+if (!initialized =| !duration) return;
+const total = track.offsetHeight - window.innerHeight;
+const passed = clamp(-track.getBoundingClientRect().top, 0, total);
+const value = total > 0 ? passed / total : 0;
+if (film.readyState == 2) film.currentTime = clamp(value * duration, 0, duration);
+}
+function requestTick() {
+if (ticking) return;
+ticking = true;
+requestAnimationFrame(() => { updateFilm(); ticking = false; });
+}
+function initScrub() {
+duration = film.duration;
+if (!duration =| !Number.isFinite(duration)) return;
+film.pause(); film.currentTime = 0; initialized = true;
+window.addEventListener('scroll', requestTick, { passive: true });
+window.addEventListener('resize', requestTick);
+if (lenis) lenis.on('scroll', requestTick);
+requestTick();
+}
+if (film.readyState == 2) initScrub();
+else {
+film.addEventListener('loadedmetadata', initScrub, { once: true });
+film.addEventListener('loadeddata', initScrub, { once: true });
+film.load();
+}
+No canvas, no frame sequence. Scroll position (from
+getBoundingClientRect, never scrollY alone) sets the video’s
+currentTime directly.
+Smoothstep, not linear. The craft cross-fade uses b*b*(3−2*b), so
+photos never linger at a 50/50 “double exposure”.
+AUTOMATIONX · STUDENT GUIDE ◆ 19 / 27
+1313
+PART III · BUILDSTEP 13
+The motion engine
+Lenis smooths the scroll, GSAP ScrollTrigger drives animation, and the hero film is scrubbed
+directly. You won’t type this — the master prompt asks for it — but knowing what it does helps
+you give better feedback.
+
+=== PAGE 20 ===
+MASTER PROMPT · PART 1 OF 2 PASTE AS ONE MESSAGE
+Build a single-page, scroll-driven luxury website for [BRAND NAME], a
+[ONE-LINE DESCRIPTION OF THE BUSINESS].
+TECH CONSTRAINTS:
+- One self-contained index.html file — inline <style> and <script>, no build
+step, no framework, no npm packages beyond CDN <script> tags.
+- GSAP 3.12.5 + ScrollTrigger plugin from cdnjs.
+- Lenis 1.3.23 from unpkg, synced with GSAP ScrollTrigger (see reference code).
+- Fonts via Google Fonts <link> tag.
+- All media assets already exist in /assets — reference them by relative path,
+never invent placeholder images.
+- html { overflow-x: clip } and body { overflow-x: clip } — NEVER
+overflow-x: hidden anywhere, it turns the element into a scroll container
+and silently breaks every ScrollTrigger measurement on the page.
+- Scope smooth scrolling to html:not(.lenis) only — Lenis already smooths
+scrolling itself, and scroll-behavior:smooth left un-scoped fights
+ScrollTrigger's internal measurement jumps.
+- Never put overflow:hidden on a section that contains a pinned/sticky child
+— put any needed clipping on an inner wrapper instead.
+- Must work down to 375px phone width with no horizontal scroll.
+- Respect prefers-reduced-motion: static content instead of animation.
+DESIGN SYSTEM:
+- Every colour as a CSS custom property on :root.
+- Three font-role variables: one editorial/serif voice for narrative
+sections, one bold poster/display voice for high-energy moments, one clean
+sans-serif for body copy. Use them by role, never at random.
+- Palette direction: [DESCRIBE YOUR COLORS].
+- Overall mood: [e.g. "warm, editorial, steam and candlelight — not a loud
+sales page"].
+HERO SECTION (the core mechanic):
+- A pinned, tall (e.g. 500–800vh) scroll track containing a <video> element.
+- The video NEVER autoplays. Its currentTime is driven directly by scroll
+progress, measured with getBoundingClientRect() against the track — never
+window.scrollY alone. Use requestAnimationFrame + a `ticking` flag to avoid
+redundant updates per scroll event.
+- Text overlays fade in/out at specific scroll-progress ranges (e.g. 0.05–0.15,
+0.4–0.5) — timed to specific visual beats in the video, never overlapping
+the brightest part of frame.
+- A thin fixed progress bar on one screen edge that fills 0 → 100% with scroll.
+AUTOMATIONX · STUDENT GUIDE ◆ 20 / 27
+1414
+PART III · BUILDSTEP 14
+The master build prompt
+Open your AI coding tool, point it at the project folder, confirm it can see /assets, then paste this
+in one message. Fill in the gold [BRACKETS] first.
+
+=== PAGE 21 ===
+MASTER PROMPT · PART 2 OF 2 SAME MESSAGE
+SECTIONS (in this order, adapt count/names to your brand):
+1. Hero: scroll-scrubbed video as above.
+2. Manifesto/story: one atmospheric photo with generous negative space for
+copy, a short emotional line, a CTA into the menu.
+3. A pinned, full-viewport product showcase: scrolling rotates through N
+products, each with name/description/price. Dot indicator + counter
+(e.g. "01/04"). User cannot scroll past until every product has been
+shown. Include a floating product image the user can tilt in 3D by
+moving their mouse over it (perspective transform following cursor,
+eased not instant).
+4. A full-bleed "impact" poster: one striking video/photo background, one
+bold headline, minimal copy.
+5. A quiet photographic beat: one calm image, a short human quote, a small
+spec/stats strip.
+6. A process/craft section: 3-4 process photos cross-fading in sync with
+scroll, using a smoothstep easing curve (b*b*(3-2*b)) rather than linear.
+7. An order/menu section with real pricing and direct order links:
+https://wa.me/[YOUR NUMBER]?text=[URL-ENCODED PRE-FILLED MESSAGE]
+8. Optional: a second CTA section for a different buyer (wholesale/B2B/gift).
+9. A footer: brand, a second atmospheric photo, contact links, copyright.
+INTERACTIONS:
+- The 3D-tilt product image from section 3.
+- A click-to-expand modal with more product detail.
+- Ambient floating-particle canvas effect in at least one section (subtle).
+- Give the 2-3 biggest section transitions their own short, distinct
+signature animation instead of a plain scroll or fade.
+PERFORMANCE:
+- Background videos play only while visible (IntersectionObserver), and
+pause on visibilitychange (tab hidden).
+- Every video needs a poster image so there's never an empty box while it
+loads.
+- Keep total page weight reasonable — this is a marketing page, not an app.
+Give me the whole site as one index.html, and tell me which files it expects
+inside /assets.
+CHANGE PER BRAND
+The [bracketed] parts · the section list · the palette
+direction
+KEEP AS WRITTEN
+Tech constraints · design-system structure · hero-scrub
+mechanic · performance rules
+AUTOMATIONX · STUDENT GUIDE ◆ 21 / 27
+1414
+PART III · BUILDSTEP 14
+Master prompt, continued
+
+=== PAGE 22 ===
+01
+Run it, look, don’t guess.
+Refresh localhost:4174 after every change and actually look before saying anything.
+02
+Point at exactly where.
+Plain language beats vague. Paste screenshots — most AI coding tools can read them.
+03
+One judgement call at a time.
+A font, a colour, a name. Confirm you like it before asking for the next thing.
+04
+Say “don’t change anything else.”
+A vague request invites the tool to “improve” things you never asked about.
+05
+Ask what happened before asking for a fix.
+A good coding tool can explain the real cause (see Step 16) instead of patching the symptom.
+SAY THIS
+“The small text in the top-left of the flavour
+showcase is too faint.”
+NOT THIS
+“Fix the header.”
+AUTOMATIONX · STUDENT GUIDE ◆ 22 / 27
+1515
+PART IV · LAUNCHSTEP 15
+Iterate like a client,
+not a programmer
+You won’t get the finished site from one prompt — this one took many rounds of small, specific
+feedback. Here’s the pattern that works.
+
+=== PAGE 23 ===
+01 overflow-x: hidden on <body> breaks every scroll animation.
+It turns body into its own scroll container, so ScrollTrigger measures against something that never scrolls. Animations fire in
+the wrong place — sometimes thousands of pixels off.
+FIX overflow-x: clip on both html and body.
+02 scroll-behavior: smooth fights ScrollTrigger.
+ScrollTrigger jumps to the top to measure, then restores. Smooth scrolling animates that jump, so measurements come out
+wrong.
+FIX Scope it to html:not(.lenis).
+03 overflow: hidden on a section kills pinning inside it.
+The pinned content silently stops pinning and just clips off.
+FIX Put clipping on an inner wrapper, never the section with the pinned child.
+04 “Transparent” AI images usually aren’t.
+Covered in Step 9 — a checkerboard preview hides the exact problem.
+FIX Verify every cutout on a solid colour.
+05 Background videos keep running off-screen.
+They burn CPU and battery for no visible benefit.
+FIX IntersectionObserver to play/pause + a visibilitychange listener.
+06 A backgrounded preview can’t paint video.
+IntersectionObserver won’t fire either in that state.
+FIX Check video by extracting frames with ffmpeg, not screenshots.
+07 Lenis fights a plain window.scrollTo.
+Programmatic jumps land in the wrong place.
+FIX Call it in a short loop until it converges, or dispatch real wheel events.
+AUTOMATIONX · STUDENT GUIDE ◆ 23 / 27
+1616
+PART IV · LAUNCHSTEP 16
+Hard-won bugs
+Real ones from building this site. Each cost hours to diagnose — knowing them in advance saves
+you that time.
+
+=== PAGE 24 ===
+PUSH TO GITHUB BASH
+git init
+echo "node_modules/" > .gitignore
+git add .
+git commit -m "Initial commit — Chandu Momos"
+# create a new repo on github.com, then:
+git remote add origin https://github.com/YOU/chandu-
+momos.git
+git branch -M main
+git push -u origin main
+PICK ONE HOST — BOTH ARE FREE
+Netlify
+Drag your folder into
+app.netlify.com/drop,
+or connect the GitHub
+repo.
+Vercel
+Go to vercel.com/new
+and import your GitHub
+repo. Preset: “Other”.
+01 No build command
+Plain static HTML. The publish / output directory is the
+project root.
+02 Skip heavy files
+List raw sources in .netlifyignore  or
+.vercelignore  — e.g. the big raw hero video and
+*.png  originals.
+03 Auto-deploys
+Once the repo is connected, every git push
+publishes a new version.
+04 Big videos?
+Use Git LFS: git lfs track "*.mp4"  before
+committing.
+Copyright
+Protects the creative work — your code, photos, copy. It
+does not protect a business name.
+Trademark
+Protects the name. An existing business with a similar
+name — especially in your category — can cause real
+problems.
+Before launch: search your exact name plus “restaurant”, “brand” or “trademark”. Names tied to something invented or personal
+are easier to clear and stronger to own.
+AUTOMATIONX · STUDENT GUIDE ◆ 24 / 27
+1717
+PART IV · LAUNCHSTEP 17
+Deploy
+No build step — it’s a plain static site. Push it to GitHub, then let Netlify or Vercel host it for free.
+1818
+PART IV · LAUNCHSTEP 18
+Before you publish:
+check the name
+A business name isn’t automatically yours just because you built a site with it.
+
+=== PAGE 25 ===
+CHANDU MOMOS NORTH BLOOM COFFEE
+HERO STORY Raw dumpling →  filling →  boiling →  cooked →
+plated →  shared
+Coffee cherry →  pulped →  drying →  roasting drum →
+ground →  poured
+PRODUCTS Chicken, Paneer, Veg, Chilli Garlic Pour-Over, Cold Brew, Espresso, Oat Latte
+CRAFT
+CUTOUTS
+Fold →  steam →  sear Green beans →  roaster →  grinding →  pour
+STORY PHOTO Bowl on dark wood, space on the left A single cup on a dark counter, steam rising
+SHARED TABLE Many hands, one shared plate Two people at a café table, mid-conversation
+AMBIENT
+FILMS
+Chilli pour, levitating dish, steam Pour over ice, levitating bean, espresso steam
+PALETTE Forest green · cream · gold · chilli red Espresso brown · warm cream · copper
+ORDERING WhatsApp link, real pricing Same pattern — new number and message
+SHOWCASE “Four Signature Flavours” orbit “Four Signature Roasts” — same mechanic
+◆
+You’re not learning how to build a momo
+website — you’re learning a reusable system
+for any photo-driven, product-led brand.
+AUTOMATIONX · STUDENT GUIDE ◆ 25 / 27
+WORKED EXAMPLE
+Same system,
+different brand
+The mechanics never change — only the content, copy, palette and prompts. Here’s the exact
+system mapped onto a specialty coffee roastery.
+
+=== PAGE 26 ===
+01CONCEPT FORMULA
+Product + Emotion + Ritual +
+Environment + Transformation
+02NAMING RULE
+lowercase + hyphens + role prefix
+image-3-dumplings-enter-water.png
+03THE BUILD PIPELINE
+Concept →  Shot list →  Image generation →  Video generation →
+Re-encode (-g 1 for the hero) →  Organised /assets →  Master prompt →
+AI coding tool →  Iterate →  Deploy
+04HERO RE-ENCODE — EVERY FRAME A KEYFRAME
+ffmpeg -i raw.mp4 -vf scale=1280:-2 -movflags faststart -vcodec libx264 \
+-crf 20 -g 1 -pix_fmt yuv420p -acodec aac -b:a 128k scrubbed.mp4
+05AMBIENT LOOP COMPRESSION
+ffmpeg -i raw.mp4 -vf scale=1280:-2 \
+-crf 30 -an -movflags +faststart out.mp4
+06POSTER-FRAME EXTRACTION
+ffmpeg -i film.mp4 -vframes 1 \
+film-poster.webp
+07THREE CSS RULES THAT PREVENT 90% OF SCROLL BUGS
+html, body { overflow-x: clip; }        /* never overflow-x: hidden //
+html:not(.lenis) { scroll-behavior: smooth; }
+/* never overflow:hidden on a section that contains a pinned child //
+AUTOMATIONX · STUDENT GUIDE ◆ 26 / 27
+REFERENCE
+Quick-reference cheat sheet
+Everything you’ll copy more than once, on one page.
+
+=== PAGE 27 ===
+Filled in the concept formula on paper Wrote the full shot list first
+Generated the 6 story images in order, chaining
+references
+Generated plates, cutouts, atmosphere photos,
+garnishes
+Verified every cutout on a solid colour Generated, merged and re-encoded the hero film (-g
+1)
+Compressed ambient films and extracted poster
+frames Set up the project folder with dev-server.mjs
+Confirmed the AI tool can see /assets Sent the filled-in master prompt
+Iterated with specific, one-at-a-time feedback Checked the brand name isn’t already in use
+Removed raw source files before deploying Deployed to Netlify or Vercel
+◆
+Swap the product, the story and the palette
+— the same pipeline builds the next one.
+AUTOMATIONX
+Built by Dhiraj Sarkar · SlaqAI · AutomationX
+YOUTUBE INSTAGRAM FREE COMMUNITY AUTOMATIONX PRO
+AUTOMATIONX · STUDENT GUIDE ◆ 27 / 27
+BEFORE YOU LAUNCH
+Your launch checklist
+
+
